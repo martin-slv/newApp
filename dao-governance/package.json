@@ -1,0 +1,41 @@
+{
+  "name": "dao-governance",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev -p 5000",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@mantine/carousel": "^8.3.2",
+    "@mantine/code-highlight": "^8.3.2",
+    "@mantine/core": "^8.3.2",
+    "@mantine/dates": "^8.3.2",
+    "@mantine/form": "^8.3.2",
+    "@mantine/hooks": "^8.3.2",
+    "@mantine/modals": "^8.3.2",
+    "@mantine/notifications": "^8.3.2",
+    "@mantine/spotlight": "^8.3.2",
+    "@mantine/tiptap": "^8.3.2",
+    "@tabler/icons-react": "^3.35.0",
+    "@tiptap/pm": "^3.5.2",
+    "@tiptap/react": "^3.5.2",
+    "@tiptap/starter-kit": "^3.5.2",
+    "dayjs": "^1.11.18",
+    "next": "^15.5.4",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "typescript": "^5.9.2"
+  }
+}
