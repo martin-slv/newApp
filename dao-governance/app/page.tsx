@@ -62,6 +62,11 @@ import { useDisclosure, useLocalStorage } from '@mantine/hooks';
 import { showNotification } from '@mantine/notifications';
 import { modals } from '@mantine/modals';
 import { DatePicker, DateValue, TimeInput } from '@mantine/dates';
+import { WalletButton } from '@/components/wallet/WalletButton';
+import { ProposalCard } from '@/components/dao/ProposalCard';
+import { CreateProposalForm } from '@/components/dao/CreateProposalForm';
+import { useAccount } from 'wagmi';
+import { useDAOContract } from '@/hooks/useDAOContract';
 import {
   IconBell,
   IconHome,
@@ -100,11 +105,18 @@ import { useState } from 'react';
 export default function HomePage() {
   const [opened, { open, close }] = useDisclosure(false);
   const [drawerOpened, { open: openDrawer, close: closeDrawer }] = useDisclosure(false);
+  const [createProposalOpened, { open: openCreateProposal, close: closeCreateProposal }] = useDisclosure(false);
   const [activeTab, setActiveTab] = useState<string | null>('governance');
   const [selectedDate, setSelectedDate] = useState<DateValue>(null);
   const [sliderValue, setSliderValue] = useState(50);
   const [rating, setRating] = useState(0);
   const [segmentedValue, setSegmentedValue] = useState('proposals');
+  
+  // Blockchain integration
+  const { address, isConnected } = useAccount();
+  const { useProposalCount, useTreasuryBalance } = useDAOContract();
+  const { data: proposalCount } = useProposalCount();
+  const { data: treasuryBalance } = useTreasuryBalance();
 
   // Sample data for DAO governance
   const proposals = [

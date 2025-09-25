@@ -10,6 +10,7 @@ import '@mantine/code-highlight/styles.css';
 import { MantineProvider, createTheme } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
 import { ModalsProvider } from '@mantine/modals';
+import { Web3Provider } from '@/components/providers/Web3Provider';
 
 const theme = createTheme({
   colors: {
@@ -44,12 +45,14 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body>
-        <MantineProvider theme={theme}>
-          <ModalsProvider>
-            <Notifications />
-            {children}
-          </ModalsProvider>
-        </MantineProvider>
+        <Web3Provider>
+          <MantineProvider theme={theme}>
+            <ModalsProvider>
+              <Notifications />
+              {children}
+            </ModalsProvider>
+          </MantineProvider>
+        </Web3Provider>
       </body>
     </html>
   );
